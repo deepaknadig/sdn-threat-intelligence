@@ -1,0 +1,422 @@
+{
+  "template" : "bro-conn-log*",
+  "version" : 50001,
+  "settings" : {
+    "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "_default_" : {
+	"properties": {
+          "@timestamp": {
+            "type": "date"
+          },
+          "@version": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "column21": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "conn_state": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "conn_state_full": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "duration": {
+            "type": "float"
+          },
+          "history": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "host": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "id_orig_host": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "id_orig_port": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "id_resp_host": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "id_resp_port": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "local_orig": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "message": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "missed_bytes": {
+            "type": "long"
+          },
+          "orig_bytes": {
+            "type": "long"
+          },
+          "orig_geoip": {
+            "properties": {
+              "city_name": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "continent_code": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "country_code2": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "country_code3": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "country_name": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "dma_code": {
+                "type": "long"
+              },
+              "ip": {
+                "type": "ip"
+              },
+              "latitude": {
+                "type": "half_float"
+              },
+              "location": {
+                 "type": "geo_point"
+              },
+              "longitude": {
+                "type": "half_float"
+              },
+              "postal_code": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "region_code": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "region_name": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "timezone": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              }
+            }
+          },
+          "orig_ip_bytes": {
+            "type": "long"
+          },
+          "orig_pkts": {
+            "type": "long"
+          },
+          "path": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "proto": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "resp_bytes": {
+            "type": "long"
+          },
+          "resp_geoip": {
+            "properties": {
+              "city_name": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "continent_code": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "country_code2": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "country_code3": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "country_name": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "dma_code": {
+                "type": "long"
+              },
+	      "ip": {
+                "type": "ip"
+              },
+              "latitude": {
+                "type": "half_float"
+              },
+              "location": {
+                 "type": "geo_point"
+              },
+              "longitude": {
+                "type": "half_float"
+              },
+              "postal_code": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "region_code": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "region_name": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "timezone": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              }
+            }
+          },
+          "resp_ip_bytes": {
+            "type": "long"
+          },
+          "resp_pkts": {
+            "type": "long"
+          },
+          "service": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "tags": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "ts": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "tunnel_parents": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "type": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "uid": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
