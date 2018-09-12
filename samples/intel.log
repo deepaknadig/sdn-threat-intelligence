@@ -1,0 +1,13 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	intel
+#open	2018-09-10-16-29-39
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	fuid	file_mime_type	file_desc	seen.indicator	seen.indicator_type	seen.where	seen.node	sources
+#types	time	string	addr	port	addr	port	string	string	string	string	enum	enum	string	set[string]
+1536614979.049837	CdaZh02YrlsHZR4tO2	10.71.107.53	42864	51.15.89.218	443	-	-	-	51.15.89.218	Intel::ADDR	Conn::IN_RESP	bro	from https://www.dan.me.uk/torlist/ via intel.criticalstack.com
+1536614982.057827	CJa5X71YlhCMGVI4j	10.71.107.53	36252	31.13.188.43	443	-	-	-	31.13.188.43	Intel::ADDR	Conn::IN_RESP	bro	from https://www.dan.me.uk/torlist/ via intel.criticalstack.com
+1536614997.057813	CYzEZD1SYB7FXfN54b	10.71.107.53	42868	51.15.89.218	443	-	-	-	51.15.89.218	Intel::ADDR	Conn::IN_RESP	bro	from https://www.dan.me.uk/torlist/ via intel.criticalstack.com
+1536615001.061884	CJjML33ahnJ0AznuRd	10.71.107.53	36256	31.13.188.43	443	-	-	-	31.13.188.43	Intel::ADDR	Conn::IN_RESP	bro	from https://www.dan.me.uk/torlist/ via intel.criticalstack.com
+#close	2018-09-10-17-00-00
