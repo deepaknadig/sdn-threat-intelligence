@@ -6,6 +6,10 @@ urllist = [ 'https://www.circl.lu/doc/misp/feed-osint/',
             'https://feeds.inthreat.com/osint/misp/'
         ]
 
+target = r"/home/ubuntu/intel/json"
+if not os.path.exists(target):
+    os.makedirs(target)
+
 for url in urllist:
     print("_____________________________________________________________________\n")
     print("Downloading from the url: {}".format(url))
@@ -21,12 +25,10 @@ for url in urllist:
     urlpath =urlopen(req)
 
     string = urlpath.read().decode('utf-8')
-
     pattern = re.compile('[0-9a-zA-Z\-]*.json') #the pattern actually creates duplicates in the list
 
     filelist2 = pattern.findall(string)
     filelist = list(set(filelist2))
-    print(filelist)
 
     total = len(filelist)
     start = 1
@@ -46,11 +48,15 @@ for url in urllist:
                     'User-Agent': 'Mozilla/5.0' # (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36
                 }
             )
+
             remotefile = urlopen(reqjson)
-            localfile = open(filename,'wb')
-            localfile.write(remotefile.read())
-            localfile.write(newlines)
-            localfile.close()
+            full_filename = os.path.join(target, filename)
+            with open(full_filename, 'wb') as f:
+                f.write(remotefile.read())
+                f.write(newlines)
+                f.close()
             remotefile.close()
             print("Completed.")
+            start += 1
+        else:
             start += 1
