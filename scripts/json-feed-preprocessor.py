@@ -1,5 +1,4 @@
 import json
-import pprint
 import os
 import sys
 from inteltypes import type_dict
@@ -19,9 +18,9 @@ def progress(count, total, status=''):
 
 # For Python 3.6 and above
 # directory = os.fsencode('/home/ubuntu/intel/json')
-directory = '/home/dna/intel/json'
+directory = '/home/ubuntu/intel/json'
 
-target = os.fsencode('/home/dna/intel/json2')
+target = os.fsencode('/home/ubuntu/intel/json2')
 if not os.path.exists(target):
     os.makedirs(target)
 
@@ -32,7 +31,6 @@ i = 1
 
 
 def json_file_reader(source):
-    # print('Starting {}.\n'.format(filename))
     # Uncomment for Python >= 3.6
     # source = os.fsdecode(source)
     if source.endswith(".json"):
@@ -111,10 +109,6 @@ def process_common_fields(data):
                 item['threat-type2'] = item['threat-type']
                 item['threat-type'] = type_dict[item['threat-type']]
 
-            # print(item['threat-has-types'] + "\t" + item['threat-type'] + "\t" + item['threat-type2'])
-            # print(item['threat-has-values'] + "\t" + item['threat-value'] + "\t" + item['threat-value2'])
-            # print(item['threat-type'])
-
             local_event_list.append(item)
 
         total_events = len(local_event_list)
@@ -125,7 +119,6 @@ def process_common_fields(data):
 # for file in os.listdir(directory):
 for filename in os.listdir(directory):
 
-    # print('Starting {}.'.format(filename))
     progress(progress_counter, len(os.listdir(directory)), status='Processing...')
     progress_counter += 1
 
@@ -135,31 +128,12 @@ for filename in os.listdir(directory):
     events, file_events = process_common_fields(data)
     total_num_events += file_events
 
-    # for event in events:
-    #     prefix = '{:d}'.format(i).zfill(8) + '-'
-    #     filename1 = prefix + filename
-    #     filename2 = os.fsencode(filename1)
-    #
-    #     local_event_data['Event'] = [events]
-    #
-    #     json_file_writer(local_event_data, filename2, target)
-    #
-    #     # Clear temporary local variables
-    #     local_event_data.clear()
-    #     i += 1
-
-    filename2 = os.fsencode(filename)
-
     local_event_data['Events'] = events
 
-    json_file_writer(local_event_data, filename2, target)
+    json_file_writer(local_event_data, os.fsencode(filename), target)
 
     # Clear temporary local variables
     local_event_data.clear()
-    # i += 1
-    #
-    # # Reset 'i'
-    # i = 1
 
 print('\nCompleted preprocessing successfully.\n')
 print('Total processed events: {:,}\n'.format(total_num_events))
