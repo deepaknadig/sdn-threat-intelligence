@@ -1,0 +1,4 @@
+## /etc/logstash/jvm.options
+## GC configuration
+-XX:+UseG1GC
+-XX:MaxGCPauseMillis=400
