@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-wget -c "https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist" -O csv/zeustracker-abuse-ipblocklist.csv
-wget -c "https://zeustracker.abuse.ch/blocklist.php?download=compromised" -O csv/zeustracker-abuse-compromised.csv
-wget -c "http://rules.emergingthreats.net/blockrules/compromised-ips.txt" -O csv/emergingthreats-compromised.csv
+wget -c "https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist" -O csv/001_zeustracker-abuse-ipblocklist.csv
+wget -c "https://zeustracker.abuse.ch/blocklist.php?download=compromised" -O csv/002_zeustracker-abuse-compromised.csv
+wget -c "http://rules.emergingthreats.net/blockrules/compromised-ips.txt" -O csv/003_emergingthreats-compromised.csv
 wget -c "https://panwdbl.appspot.com/lists/mdl.txt" -O csv/appspot-malwaredomainlist.csv
 #wget -c "https://www.dan.me.uk/torlist/?exit" -O csv/tor-exit-nodes.csv
 #wget -c "https://www.dan.me.uk/torlist/" -O csv/tor-all-nodes.csv

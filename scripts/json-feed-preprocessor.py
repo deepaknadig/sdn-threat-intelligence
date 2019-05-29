@@ -18,9 +18,9 @@ def progress(count, total, status=''):
 
 # For Python 3.6 and above
 # directory = os.fsencode('/home/ubuntu/intel/json')
-directory = '/home/ubuntu/intel/json'
+directory = '/home/dna/intel/json'
 
-target = os.fsencode('/home/ubuntu/intel/json2')
+target = os.fsencode('/home/dna/intel/json2')
 if not os.path.exists(target):
     os.makedirs(target)
 
@@ -79,35 +79,44 @@ def process_common_fields(data):
             item['threat-uuid'] = item.pop('uuid')
             item['exportable-to-ids'] = item.pop('to_ids')
 
-            # Intel Types
-            item['threat-type'] = item.pop('type')
-            item['threat-type-metadata'] = ''
-            item['threat-has-types'] = 'false'
-            item['threat-type2'] = ''
-            item['threat-type2-metadata'] = ''
+            # Threat Intel Data
+            item['threat-data'] = {}
+            item['threat-data'].update({
+                'has-types': 'false',
+                'has-meta': 'false',
+                'is-extended': 'false',
+                'type1': item.pop('type'),
+                'sub-type1': '',
+                'value1': item.pop('value'),
+                'meta1': '',
+                'type2': '',
+                'sub-type2': '',
+                'value2': '',
+                'meta2': '',
+
+            })
 
             # Type(s) preprocessing
-            if '|' in item['threat-type']:
-                var1 = item['threat-type']
-                item['threat-has-types'] = 'true'
-                item['threat-type2'] = var1.split('|')[1]
-                item['threat-type'] = var1.split('|')[0]
+            if '|' in item['threat-data']['type1']:
+                item['threat-data'].update({
+                    'has-types': 'true',
+                    'type2': item['threat-data']['type1'].split('|')[1],
+                    'type1': item['threat-data']['type1'].split('|')[0],
+                    'value2': item['threat-data']['value1'].split('|')[1],
+                    'value1': item['threat-data']['value1'].split('|')[0]
+                })
 
-            # Intel Values
-            item['threat-value'] = item.pop('value')
-            item['threat-has-values'] = 'false'
-            item['threat-value2'] = ''
+            if item['threat-data']['type1'] in type_dict.keys():
+                item['threat-data'].update({
+                    'sub-type1': item['threat-data']['type1'],
+                    'type1': type_dict[item['threat-data']['type1']]
+                })
 
-            # Value(s) preprocessing
-            if '|' in item['threat-value']:
-                var2 = item['threat-value']
-                item['threat-has-values'] = 'true'
-                item['threat-value2'] = var2.split('|')[1]
-                item['threat-value'] = var2.split('|')[0]
-
-            if item['threat-type'] in type_dict.keys():
-                item['threat-type2'] = item['threat-type']
-                item['threat-type'] = type_dict[item['threat-type']]
+            if item['threat-data']['type2'] in type_dict.keys():
+                item['threat-data'].update({
+                    'sub-type2': item['threat-data']['type2'],
+                    'type2': type_dict[item['threat-data']['type2']]
+                })
 
             local_event_list.append(item)
 
