@@ -11,6 +11,7 @@ wget -c "https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist" -O $IN
 wget -c "https://zeustracker.abuse.ch/blocklist.php?download=compromised" -O $INTEL_DIR/002_zeustracker-abuse-compromised.csv
 wget -c "http://rules.emergingthreats.net/blockrules/compromised-ips.txt" -O $INTEL_DIR/003_emergingthreats-compromised.csv
 wget -c "https://panwdbl.appspot.com/lists/mdl.txt" -O $INTEL_DIR/004_appspot-malwaredomainlist.csv
+wget -c "http://cybercrime-tracker.net/all.php" -O $INTEL_DIR/005_cybercrime-tracker.csv
 #wget -c "https://www.dan.me.uk/torlist/?exit" -O $INTEL_DIR/tor-exit-nodes.csv
 #wget -c "https://www.dan.me.uk/torlist/" -O $INTEL_DIR/tor-all-nodes.csv
 wget -c "http://data.phishtank.com/data/online-valid.csv" -O $INTEL_DIR/phishtank.csv
@@ -38,6 +39,7 @@ wget -c "http://www.ipspamlist.com/public_feeds.csv" -O $INTEL_DIR/ipspamlist.cs
 tr ',' '\n' < $INTEL_DIR/cybercure-ipblocklist-temp.csv > $INTEL_DIR/cybercure-ipblocklist.csv
 tr ',' '\n' < $INTEL_DIR/cybercure-blocked-urls-temp.csv > $INTEL_DIR/cybercure-blocked-urls.csv
 tr ',' '\n' < $INTEL_DIR/cybercure-hashes-temp.csv > $INTEL_DIR/cybercure-hashes.csv
+sed -i -e '$a\' $INTEL_DIR/004_appspot-malwaredomainlist.csv
 sed -i -e '$a\' $INTEL_DIR/cybercure-ipblocklist.csv
 sed -i -e '$a\' $INTEL_DIR/cybercure-blocked-urls.csv
 sed -i -e '$a\' $INTEL_DIR/cybercure-hashes.csv
