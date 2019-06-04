@@ -12,9 +12,7 @@ wget -c "https://zeustracker.abuse.ch/blocklist.php?download=compromised" -O $IN
 wget -c "http://rules.emergingthreats.net/blockrules/compromised-ips.txt" -O $INTEL_DIR/003_emergingthreats-compromised.csv
 wget -c "https://panwdbl.appspot.com/lists/mdl.txt" -O $INTEL_DIR/004_appspot-malwaredomainlist.csv
 wget -c "http://cybercrime-tracker.net/all.php" -O $INTEL_DIR/005_cybercrime-tracker.csv
-#wget -c "https://www.dan.me.uk/torlist/?exit" -O $INTEL_DIR/tor-exit-nodes.csv
-#wget -c "https://www.dan.me.uk/torlist/" -O $INTEL_DIR/tor-all-nodes.csv
-wget -c "http://data.phishtank.com/data/online-valid.csv" -O $INTEL_DIR/phishtank.csv
+wget -c "http://data.phishtank.com/data/online-valid.csv" -O $INTEL_DIR/006_phishtank.csv
 wget -c "http://dns-bh.sagadc.org/dynamic_dns.txt" -O $INTEL_DIR/listdynamic-dns-blocklist.csv
 wget -c "https://home.nuug.no/~peter/pop3gropers.txt" -O $INTEL_DIR/pop3-gropers-ipblocklist.csv
 wget -c "https://ransomwaretracker.abuse.ch/feeds/csv/" -O $INTEL_DIR/ransomwaretracker-abuse.csv
@@ -34,6 +32,8 @@ wget -c "http://api.cybercure.ai/feed/get_ips?type=csv" -O $INTEL_DIR/cybercure-
 wget -c "http://api.cybercure.ai/feed/get_url?type=csv" -O $INTEL_DIR/cybercure-blocked-urls-temp.csv
 wget -c "http://api.cybercure.ai/feed/get_hash?type=csv" -O $INTEL_DIR/cybercure-hashes-temp.csv
 wget -c "http://www.ipspamlist.com/public_feeds.csv" -O $INTEL_DIR/ipspamlist.csv
+#wget -c "https://www.dan.me.uk/torlist/?exit" -O $INTEL_DIR/tor-exit-nodes.csv
+#wget -c "https://www.dan.me.uk/torlist/" -O $INTEL_DIR/tor-all-nodes.csv
 
 # File Cleanups
 tr ',' '\n' < $INTEL_DIR/cybercure-ipblocklist-temp.csv > $INTEL_DIR/cybercure-ipblocklist.csv
