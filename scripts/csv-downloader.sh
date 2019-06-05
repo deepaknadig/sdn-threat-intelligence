@@ -13,7 +13,7 @@ wget -c "http://rules.emergingthreats.net/blockrules/compromised-ips.txt" -O $IN
 wget -c "https://panwdbl.appspot.com/lists/mdl.txt" -O $INTEL_DIR/004_appspot-malwaredomainlist.csv
 wget -c "http://cybercrime-tracker.net/all.php" -O $INTEL_DIR/005_cybercrime-tracker.csv
 wget -c "http://data.phishtank.com/data/online-valid.csv" -O $INTEL_DIR/006_phishtank.csv
-wget -c "http://dns-bh.sagadc.org/dynamic_dns.txt" -O $INTEL_DIR/listdynamic-dns-blocklist.csv
+wget -c "http://dns-bh.sagadc.org/dynamic_dns.txt" -O $INTEL_DIR/007_listdynamic-dns-blocklist.csv
 wget -c "https://home.nuug.no/~peter/pop3gropers.txt" -O $INTEL_DIR/pop3-gropers-ipblocklist.csv
 wget -c "https://ransomwaretracker.abuse.ch/feeds/csv/" -O $INTEL_DIR/ransomwaretracker-abuse.csv
 wget -c "https://feodotracker.abuse.ch/blocklist/?download=ipblocklist" -O $INTEL_DIR/feodotracker-abuse-ipblocklist.csv
