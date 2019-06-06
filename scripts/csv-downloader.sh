@@ -17,8 +17,8 @@ wget -c "http://dns-bh.sagadc.org/dynamic_dns.txt" -O $INTEL_DIR/007_listdynamic
 wget -c "http://labs.snort.org/feeds/ip-filter.blf" -O $INTEL_DIR/008_snort-ip-filter.csv
 wget -c "https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt" -O $INTEL_DIR/009_pan-unit42-diamondfox-panels.csv
 wget -c "https://home.nuug.no/~peter/pop3gropers.txt" -O $INTEL_DIR/010_pop3-gropers-ipblocklist.csv
-wget -c "https://ransomwaretracker.abuse.ch/feeds/csv/" -O $INTEL_DIR/ransomwaretracker-abuse.csv
-wget -c "https://feodotracker.abuse.ch/blocklist/?download=ipblocklist" -O $INTEL_DIR/feodotracker-abuse-ipblocklist.csv
+wget -c "https://ransomwaretracker.abuse.ch/feeds/csv/" -O $INTEL_DIR/011_ransomwaretracker-abuse.csv
+wget -c "https://feodotracker.abuse.ch/blocklist/?download=ipblocklist" -O $INTEL_DIR/012_feodotracker-abuse-ipblocklist.csv
 wget -c "https://hosts-file.net/psh.txt" -O $INTEL_DIR/hosts-file-temp.csv
 wget -c "https://hosts-file.net/emd.txt" -O $INTEL_DIR/hosts-file-emd-temp.csv
 wget -c "http://cinsscore.com/list/ci-badguys.txt" -O $INTEL_DIR/cinsscore-ci-badguys.csv
@@ -38,6 +38,7 @@ wget -c "http://www.ipspamlist.com/public_feeds.csv" -O $INTEL_DIR/ipspamlist.cs
 #wget -c "https://www.dan.me.uk/torlist/" -O $INTEL_DIR/tor-all-nodes.csv
 
 # File Cleanups
+sed -i -e 's/\\"//g' $INTEL_DIR/011_ransomwaretracker-abuse.csv
 tr ',' '\n' < $INTEL_DIR/cybercure-ipblocklist-temp.csv > $INTEL_DIR/cybercure-ipblocklist.csv
 tr ',' '\n' < $INTEL_DIR/cybercure-blocked-urls-temp.csv > $INTEL_DIR/cybercure-blocked-urls.csv
 tr ',' '\n' < $INTEL_DIR/cybercure-hashes-temp.csv > $INTEL_DIR/cybercure-hashes.csv
