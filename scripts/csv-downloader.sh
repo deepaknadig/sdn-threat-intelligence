@@ -15,6 +15,7 @@ wget -c "http://cybercrime-tracker.net/all.php" -O $INTEL_DIR/005_cybercrime-tra
 wget -c "http://data.phishtank.com/data/online-valid.csv" -O $INTEL_DIR/006_phishtank.csv
 wget -c "http://dns-bh.sagadc.org/dynamic_dns.txt" -O $INTEL_DIR/007_listdynamic-dns-blocklist.csv
 wget -c "http://labs.snort.org/feeds/ip-filter.blf" -O $INTEL_DIR/008_snort-ip-filter.csv
+wget -c "https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt" -O $INTEL_DIR/009_pan-unit42-diamondfox-panels.csv
 wget -c "https://home.nuug.no/~peter/pop3gropers.txt" -O $INTEL_DIR/pop3-gropers-ipblocklist.csv
 wget -c "https://ransomwaretracker.abuse.ch/feeds/csv/" -O $INTEL_DIR/ransomwaretracker-abuse.csv
 wget -c "https://feodotracker.abuse.ch/blocklist/?download=ipblocklist" -O $INTEL_DIR/feodotracker-abuse-ipblocklist.csv
