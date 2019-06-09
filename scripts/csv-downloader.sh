@@ -19,14 +19,14 @@ wget -c "https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/dia
 wget -c "https://home.nuug.no/~peter/pop3gropers.txt" -O $INTEL_DIR/010_pop3-gropers-ipblocklist.csv
 wget -c "https://ransomwaretracker.abuse.ch/feeds/csv/" -O $INTEL_DIR/011_ransomwaretracker-abuse.csv
 wget -c "https://feodotracker.abuse.ch/downloads/ipblocklist.csv" -O $INTEL_DIR/012_feodotracker-abuse-ipblocklist.csv
-wget -c "https://hosts-file.net/psh.txt" -O $INTEL_DIR/hosts-file-psh-temp.csv
-wget -c "https://hosts-file.net/emd.txt" -O $INTEL_DIR/hosts-file-emd-temp.csv
+wget -c "https://hosts-file.net/psh.txt" -O $INTEL_DIR/hphosts-file-psh-temp.csv
+wget -c "https://hosts-file.net/emd.txt" -O $INTEL_DIR/hphosts-file-emd-temp.csv
+wget -c "https://hosts-file.net/grm.txt" -O $INTEL_DIR/hphosts-domains-temp.csv
 wget -c "http://cinsscore.com/list/ci-badguys.txt" -O $INTEL_DIR/cinsscore-ci-badguys.csv
 wget -c "http://reputation.alienvault.com/reputation.generic" -O $INTEL_DIR/alienvault-generic.csv
 wget -c "http://osint.bambenekconsulting.com/feeds/dga-feed-high.csv" -O $INTEL_DIR/osint-bambenekconsulting-mal-domains.csv
 wget -c "https://sslbl.abuse.ch/blacklist/sslipblacklist.csv" -O $INTEL_DIR/sslbl-abuse-ipblacklist.csv
 wget -c "https://sslbl.abuse.ch/blacklist/dyre_sslipblacklist.csv" -O $INTEL_DIR/dyressl-abuse-ipblacklist.csv
-wget -c "https://hosts-file.net/grm.txt" -O $INTEL_DIR/hphosts-domains-temp.csv
 wget -c "https://blocklist.greensnow.co/greensnow.txt" -O $INTEL_DIR/greensnow-ipblocklist.csv
 wget -c "http://www.cert.at/static/downloads/data/conficker/all_domains.txt" -O $INTEL_DIR/conficker-domains.csv
 wget -c "https://urlhaus.abuse.ch/downloads/csv/" -O $INTEL_DIR/urlhaus-abuse-malwaredomainlist.csv
@@ -49,8 +49,12 @@ sed -i -e '$a\' $INTEL_DIR/cybercure-hashes.csv
 
 rm -rvf $INTEL_DIR/cybercure-ipblocklist-temp.csv $INTEL_DIR/cybercure-blocked-urls-temp.csv $INTEL_DIR/cybercure-hashes-temp.csv
 
-sed '1,7 {s/^/#/}' $INTEL_DIR/hosts-file-psh-temp.csv > $INTEL_DIR/hosts-file-psh.csv
-sed '1,7 {s/^/#/}' $INTEL_DIR/hosts-file-emd-temp.csv > $INTEL_DIR/hosts-file-emd.csv
-sed '1,7 {s/^/#/}' $INTEL_DIR/hphosts-domains-temp.csv > $INTEL_DIR/hphosts-domains.csv
+sed '1,7 {s/^/#/}' $INTEL_DIR/hphosts-file-psh-temp.csv > $INTEL_DIR/hphosts-file-psh-temp2.csv
+sed '1,7 {s/^/#/}' $INTEL_DIR/hphosts-file-emd-temp.csv > $INTEL_DIR/hphosts-file-emd-temp2.csv
+sed '1,7 {s/^/#/}' $INTEL_DIR/hphosts-domains-temp.csv > $INTEL_DIR/hphosts-domains-temp2.csv
+tr '\t' ',' < $INTEL_DIR/hphosts-file-psh-temp2.csv > $INTEL_DIR/hphosts-psh.csv
+tr '\t' ',' < $INTEL_DIR/hphosts-file-emd-temp2.csv > $INTEL_DIR/hphosts-emd.csv
+tr '\t' ',' < $INTEL_DIR/hphosts-domains-temp2.csv > $INTEL_DIR/hphosts-domains.csv
 
-rm -rvf $INTEL_DIR/hosts-file-temp* $INTEL_DIR/hosts-file-emd-temp* $INTEL_DIR/hphosts-domains-temp*
+
+rm -rvf $INTEL_DIR/hphosts-file-psh-temp* $INTEL_DIR/hphosts-file-emd-temp* $INTEL_DIR/hphosts-domains-temp*
