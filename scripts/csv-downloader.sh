@@ -19,7 +19,7 @@ wget -c "https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/dia
 wget -c "https://home.nuug.no/~peter/pop3gropers.txt" -O $INTEL_DIR/010_pop3-gropers-ipblocklist.csv
 wget -c "https://ransomwaretracker.abuse.ch/feeds/csv/" -O $INTEL_DIR/011_ransomwaretracker-abuse.csv
 wget -c "https://feodotracker.abuse.ch/downloads/ipblocklist.csv" -O $INTEL_DIR/012_feodotracker-abuse-ipblocklist.csv
-wget -c "https://hosts-file.net/psh.txt" -O $INTEL_DIR/hosts-file-temp.csv
+wget -c "https://hosts-file.net/psh.txt" -O $INTEL_DIR/hosts-file-psh-temp.csv
 wget -c "https://hosts-file.net/emd.txt" -O $INTEL_DIR/hosts-file-emd-temp.csv
 wget -c "http://cinsscore.com/list/ci-badguys.txt" -O $INTEL_DIR/cinsscore-ci-badguys.csv
 wget -c "http://reputation.alienvault.com/reputation.generic" -O $INTEL_DIR/alienvault-generic.csv
@@ -49,7 +49,7 @@ sed -i -e '$a\' $INTEL_DIR/cybercure-hashes.csv
 
 rm -rvf $INTEL_DIR/cybercure-ipblocklist-temp.csv $INTEL_DIR/cybercure-blocked-urls-temp.csv $INTEL_DIR/cybercure-hashes-temp.csv
 
-sed '1,7 {s/^/#/}' $INTEL_DIR/hosts-file-temp.csv > $INTEL_DIR/hosts-file.csv
+sed '1,7 {s/^/#/}' $INTEL_DIR/hosts-file-psh-temp.csv > $INTEL_DIR/hosts-file-psh.csv
 sed '1,7 {s/^/#/}' $INTEL_DIR/hosts-file-emd-temp.csv > $INTEL_DIR/hosts-file-emd.csv
 sed '1,7 {s/^/#/}' $INTEL_DIR/hphosts-domains-temp.csv > $INTEL_DIR/hphosts-domains.csv
 
