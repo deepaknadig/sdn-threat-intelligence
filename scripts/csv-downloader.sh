@@ -22,9 +22,13 @@ wget -c "https://feodotracker.abuse.ch/downloads/ipblocklist.csv" -O $INTEL_DIR/
 wget -c "https://hosts-file.net/psh.txt" -O $INTEL_DIR/hphosts-file-psh-temp.csv
 wget -c "https://hosts-file.net/emd.txt" -O $INTEL_DIR/hphosts-file-emd-temp.csv
 wget -c "https://hosts-file.net/grm.txt" -O $INTEL_DIR/hphosts-domains-temp.csv
+wget -c "https://openphish.com/feed.txt" -O $INTEL_DIR/013_openphish-free.csv
+wget -c "https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset" -O $INTEL_DIR/014_firehol-level1.csv
+wget -c "http://osint.bambenekconsulting.com/feeds/c2-ipmasterlist-high.txt" -O $INTEL_DIR/015_bambek-c2-iplist.csv
+wget -c "http://osint.bambenekconsulting.com/feeds/c2-dommasterlist-high.txt" -O $INTEL_DIR/015_bambek-c2-domainlist.csv
+wget -c "http://osint.bambenekconsulting.com/feeds/dga-feed-high.csv" -O $INTEL_DIR/015_bambek-malicious-dga-domains.csv
 wget -c "http://cinsscore.com/list/ci-badguys.txt" -O $INTEL_DIR/cinsscore-ci-badguys.csv
 wget -c "http://reputation.alienvault.com/reputation.generic" -O $INTEL_DIR/alienvault-generic.csv
-wget -c "http://osint.bambenekconsulting.com/feeds/dga-feed-high.csv" -O $INTEL_DIR/osint-bambenekconsulting-mal-domains.csv
 wget -c "https://sslbl.abuse.ch/blacklist/sslipblacklist.csv" -O $INTEL_DIR/sslbl-abuse-ipblacklist.csv
 wget -c "https://sslbl.abuse.ch/blacklist/dyre_sslipblacklist.csv" -O $INTEL_DIR/dyressl-abuse-ipblacklist.csv
 wget -c "https://blocklist.greensnow.co/greensnow.txt" -O $INTEL_DIR/greensnow-ipblocklist.csv
