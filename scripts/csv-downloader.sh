@@ -47,9 +47,11 @@ wget -c "https://dataplane.org/sipquery.txt" -O $INTEL_DIR/019_dataplane-sip-que
 wget -c "https://dataplane.org/sipinvitation.txt" -O $INTEL_DIR/019_dataplane-sip-invitation.csv
 
 wget -c "http://vxvault.net/URL_List.php" -O $INTEL_DIR/temp-vxvault.csv
+
 wget -c "https://sslbl.abuse.ch/blacklist/sslipblacklist.csv" -O $INTEL_DIR/021_sslbl-abuse-ipblacklist.csv
-wget -c "https://sslbl.abuse.ch/blacklist/sslblacklist.csv" -O $INTEL_DIR/022_sslbl-abuse-blacklist.csv
-wget -c "https://urlhaus.abuse.ch/downloads/csv/" -O $INTEL_DIR/023_urlhaus-abuse-malwaredomainlist.csv
+wget -c "https://sslbl.abuse.ch/blacklist/sslblacklist.csv" -O $INTEL_DIR/021_sslbl-abuse-blacklist.csv
+wget -c "https://urlhaus.abuse.ch/downloads/csv/" -O $INTEL_DIR/021_urlhaus-abuse-malwaredomainlist.csv
+
 #wget -c "https://sslbl.abuse.ch/blacklist/dyre_sslipblacklist.csv" -O $INTEL_DIR/dyressl-abuse-ipblacklist.csv
 
 wget -c "https://blocklist.greensnow.co/greensnow.txt" -O $INTEL_DIR/024_greensnow-ipblocklist.csv
@@ -62,6 +64,7 @@ wget -c "https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.tx
 wget -c "http://api.cybercure.ai/feed/get_ips?type=csv" -O $INTEL_DIR/temp-cybercure-ipblocklist.csv
 wget -c "http://api.cybercure.ai/feed/get_url?type=csv" -O $INTEL_DIR/temp-cybercure-blocked-urls.csv
 wget -c "http://api.cybercure.ai/feed/get_hash?type=csv" -O $INTEL_DIR/temp-cybercure-hashes.csv
+
 wget -c "http://www.ipspamlist.com/public_feeds.csv" -O $INTEL_DIR/ipspamlist.csv
 #wget -c "https://www.dan.me.uk/torlist/?exit" -O $INTEL_DIR/tor-exit-nodes.csv
 #wget -c "https://www.dan.me.uk/torlist/" -O $INTEL_DIR/tor-all-nodes.csv
@@ -76,13 +79,13 @@ tr '\t' ',' < $INTEL_DIR/temp-hphosts-file-psh2.csv > $INTEL_DIR/hphosts-psh.csv
 tr '\t' ',' < $INTEL_DIR/temp-hphosts-file-emd2.csv > $INTEL_DIR/hphosts-emd.csv
 tr '\t' ',' < $INTEL_DIR/temp-hphosts-domains2.csv > $INTEL_DIR/hphosts-domains.csv
 sed '1,4 {s/^/#/}' $INTEL_DIR/temp-vxvault.csv > $INTEL_DIR/temp-vxvault2.csv
-tr -d '\r' < temp-vxvault2.csv > 020_vxvault-url-list.csv
+tr -d '\r' < $INTEL_DIR/temp-vxvault2.csv > $INTEL_DIR/020_vxvault-url-list.csv
 
-tr ',' '\n' < $INTEL_DIR/temp-cybercure-ipblocklist.csv > $INTEL_DIR/cybercure-ipblocklist.csv
-tr ',' '\n' < $INTEL_DIR/temp-cybercure-blocked-urls.csv > $INTEL_DIR/cybercure-blocked-urls.csv
-tr ',' '\n' < $INTEL_DIR/temp-cybercure-hashes.csv > $INTEL_DIR/cybercure-hashes.csv
-sed -i -e '$a\' $INTEL_DIR/cybercure-ipblocklist.csv
-sed -i -e '$a\' $INTEL_DIR/cybercure-blocked-urls.csv
-sed -i -e '$a\' $INTEL_DIR/cybercure-hashes.csv
+tr ',' '\n' < $INTEL_DIR/temp-cybercure-ipblocklist.csv > $INTEL_DIR/027_cybercure-ipblocklist.csv
+tr ',' '\n' < $INTEL_DIR/temp-cybercure-blocked-urls.csv > $INTEL_DIR/027_cybercure-blocked-urls.csv
+tr ',' '\n' < $INTEL_DIR/temp-cybercure-hashes.csv > $INTEL_DIR/027_cybercure-hashes.csv
+sed -i -e '$a\' $INTEL_DIR/027_cybercure-ipblocklist.csv
+sed -i -e '$a\' $INTEL_DIR/027_cybercure-blocked-urls.csv
+sed -i -e '$a\' $INTEL_DIR/027_cybercure-hashes.csv
 
 rm -rvf $INTEL_DIR/temp*
