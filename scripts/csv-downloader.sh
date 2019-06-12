@@ -71,7 +71,7 @@ wget -c "https://mirai.security.gives/data/ip_list.txt" -O $INTEL_DIR/029_securi
 wget -c "https://malsilo.gitlab.io/feeds/dumps/url_list.txt" -O $INTEL_DIR/030_mal-silo-urls.csv
 wget -c "https://malsilo.gitlab.io/feeds/dumps/ip_list.txt" -O $INTEL_DIR/030_mal-silo-ips.csv
 
-wget -c "https://malshare.com/daily/malshare.current.all.txt" -O $INTEL_DIR/031_malshare-hashes.csv
+wget -c "https://malshare.com/daily/malshare.current.all.txt" -O $INTEL_DIR/temp-malshare-hashes.csv
 wget -c "http://benkow.cc/export_rat.php" -O $INTEL_DIR/032_benkow-rat.csv
 #wget -c "https://www.dan.me.uk/torlist/?exit" -O $INTEL_DIR/tor-exit-nodes.csv
 #wget -c "https://www.dan.me.uk/torlist/" -O $INTEL_DIR/tor-all-nodes.csv
@@ -94,5 +94,6 @@ tr ',' '\n' < $INTEL_DIR/temp-cybercure-hashes.csv > $INTEL_DIR/027_cybercure-ha
 sed -i -e '$a\' $INTEL_DIR/027_cybercure-ipblocklist.csv
 sed -i -e '$a\' $INTEL_DIR/027_cybercure-blocked-urls.csv
 sed -i -e '$a\' $INTEL_DIR/027_cybercure-hashes.csv
+tr '\t' ',' < $INTEL_DIR/temp-malshare-hashes.csv > $INTEL_DIR/031_malshare-hashes.csv
 
 rm -rvf $INTEL_DIR/temp*
