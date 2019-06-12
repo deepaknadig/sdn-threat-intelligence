@@ -65,7 +65,14 @@ wget -c "http://api.cybercure.ai/feed/get_ips?type=csv" -O $INTEL_DIR/temp-cyber
 wget -c "http://api.cybercure.ai/feed/get_url?type=csv" -O $INTEL_DIR/temp-cybercure-blocked-urls.csv
 wget -c "http://api.cybercure.ai/feed/get_hash?type=csv" -O $INTEL_DIR/temp-cybercure-hashes.csv
 
-wget -c "http://www.ipspamlist.com/public_feeds.csv" -O $INTEL_DIR/ipspamlist.csv
+wget -c "http://www.ipspamlist.com/public_feeds.csv" -O $INTEL_DIR/028_ipspamlist.csv
+wget -c "https://mirai.security.gives/data/ip_list.txt" -O $INTEL_DIR/029_security-gives.csv
+
+wget -c "https://malsilo.gitlab.io/feeds/dumps/url_list.txt" -O $INTEL_DIR/030_mal-silo-urls.csv
+wget -c "https://malsilo.gitlab.io/feeds/dumps/ip_list.txt" -O $INTEL_DIR/030_mal-silo-ips.csv
+
+wget -c "https://malshare.com/daily/malshare.current.all.txt" -O $INTEL_DIR/031_malshare-hashes.csv
+wget -c "http://benkow.cc/export_rat.php" -O $INTEL_DIR/032_benkow-rat.csv
 #wget -c "https://www.dan.me.uk/torlist/?exit" -O $INTEL_DIR/tor-exit-nodes.csv
 #wget -c "https://www.dan.me.uk/torlist/" -O $INTEL_DIR/tor-all-nodes.csv
 
